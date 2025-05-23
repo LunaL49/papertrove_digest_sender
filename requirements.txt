@@ -1,4 +1,2 @@
-tensorflow==2.15.0
-transformers[tf]==4.40.0
+resend
 supabase
-numpy
