@@ -68,7 +68,7 @@ for i in range(0, len(users)):
   html_content += '''
     <p style="margin-top: 30px; font-size: 12px; color: #999999; text-align: center;">
         You’re receiving this email because you have subscribed to the research digest from papertrove.ai.<br>
-        <a href="#" style="color: #f7a072; text-decoration: none;">Unsubscribe</a>
+        <a href="https://papertrove.ai/unsubscribe" style="color: #f7a072; text-decoration: none;">Unsubscribe</a>
     </p>
   </div>
   '''
