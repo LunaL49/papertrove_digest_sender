@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "0 9 * * *" # Runs daily at 9AM UTC
   workflow_dispatch: # Enables manual trigger
+  
+permissions:
+  contents: read
 
 jobs:
   run-script:
