@@ -20,13 +20,13 @@ for i in range(0, len(users)):
   # handle days of the week, break if the day is not one where digests need to be sent
   if users[i]["frequency"] == "daily" and today.weekday() in [5, 6]: # no digests on Saturday or Sunday
     print("No digest today.")
-    break
+    continue
   if users[i]["frequency"] == "biweekly" and today.weekday() in [1,2,4,5,6]: # no digests on any day other than Monday & Thursday
     print("No digest today.")
-    break
+    continue
   if users[i]["frequency"] == "weekly" and today.weekday() != 0 : # no digests on any day other than Monday
     print("No digest today.")
-    break
+    continue
 
   # otherwise send digest
   print("Sending digest...")
