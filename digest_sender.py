@@ -19,13 +19,17 @@ today_format = today.strftime("%d %b")
 for i in range(0, len(users)):
   # handle days of the week, break if the day is not one where digests need to be sent
   if users[i]["frequency"] == "daily" and today.weekday() in [5, 6]: # no digests on Saturday or Sunday
+    print("No digest today.")
     break
   if users[i]["frequency"] == "biweekly" and today.weekday() in [1,2,4,5,6]: # no digests on any day other than Monday & Thursday
+    print("No digest today.")
     break
   if users[i]["frequency"] == "weekly" and today.weekday() != 0 : # no digests on any day other than Monday
+    print("No digest today.")
     break
 
   # otherwise send digest
+  print("Sending digest...")
   recommendations = supabase.table("recommendations").select("*").eq("user_email",users[i]["email"]).execute().data
   digest_len = users[i]["digest_length"]
   
@@ -82,4 +86,5 @@ for i in range(0, len(users)):
   email = resend.Emails.send(params)
 
   if email:
+    print("One digest sent, now deleting relevant data from database...")
     supabase.table("recommendations").delete().eq('user_email', users[i]["email"]).execute()
