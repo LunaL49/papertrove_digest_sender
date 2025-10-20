@@ -3,6 +3,7 @@ from supabase import create_client
 import os
 import resend
 import datetime
+import time
 
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
@@ -84,6 +85,7 @@ for i in range(0, len(users)):
   "html": html_content
   }
   email = resend.Emails.send(params)
+  time.sleep(1)
 
   if email:
     print("One digest sent, now deleting relevant data from database...")
